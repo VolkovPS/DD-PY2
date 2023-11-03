@@ -6,11 +6,11 @@ class SportEvent:
         self.place = place  #Местоположение соревнование
         self.time = time  #Время начала
 
-    def __str__(self):
+    def __str__(self) -> str:
         """Магический метод, возвращающий строковый объект"""
         return f"Вид спорта: {self.sport}. Место: {self.place} Время начала: {self.time}"
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         """Информационная строка об объекте"""
         return f"{self.__class__.__name__}(Вид спорта={self.sport!r}, место ={self.place!r}, время ={self.time!r})"
 
@@ -27,13 +27,13 @@ class FootballEvent(SportEvent):
         self.team2 = team2  #Вторая команда
         self.goals = goals  #Количество голов
 
-    def __str__(self):
+    def __str__(self) -> str:
         """Магический метод, возвращающий строковый объект"""
         return f"Вид спорта: {self.sport}. Турнир: {self.tournament} Участники: {self.team1} и {self.team2}." \
                f"Количество голов: {self.goals}"  #Добавлено количество голов
 
     def get_info(self) -> str:
-        """Возвращает информацию о футбольном событии."""
+        """Возвращает информацию о конретном футбольном событии и прегружает метод родительского класса"""
         return f"Турнир: {self.tournament}. Участники: {self.team1} и {self.team2}. Количество голов: {self.goals}"
 
 class TennisEvent(SportEvent):
@@ -44,5 +44,4 @@ class TennisEvent(SportEvent):
         self.player2 = player2  #Второй участник
         self.duration = duration  #Продолжительность игры
 
-sport1 = SportEvent("Футбол", "РФ", "10 часов")
-print(sport1)
+
